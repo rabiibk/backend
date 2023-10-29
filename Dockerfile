@@ -1,13 +1,10 @@
-# Stage 1: Build the application
-FROM maven:3.8.4-openjdk-11-slim 
-WORKDIR /app
-COPY pom.xml .
-COPY src src/
-RUN mvn clean package -DskipTests
+FROM openjdk:11
 
-# Stage 2: Create the runtime image
-FROM openjdk:11-jre-slim
-WORKDIR /home/rabii/backend/Dockerfile
-COPY --from=build /app/target/java8-2.0.jar java8.jar
-EXPOSE 8080
+# Créez un répertoire d'application dans l'image
+WORKDIR /home/rabii/backend
+
+# Téléchargez le fichier JAR depuis le référentiel Nexus en utilisant curl
+RUN curl -o java8.jar http://192.168.12.150:8081/repository/maven-releases/com/example/java8/2.0/java8-2.0.jar
+
+# Commande pour exécuter l'application (cela exécute le JAR lorsqu'un conteneur est démarré)
 CMD ["java", "-jar", "java8.jar"]
