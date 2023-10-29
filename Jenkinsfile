@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        NEXUS_URL = 'http://192.168.12.148:8081/'
-        NEXUS_CREDENTIALS_ID = '35f4faf5-9269-43da-8cce-c4ec1b844ea3'
+        NEXUS_URL = 'http://192.168.12.150:8081/'
+        NEXUS_CREDENTIALS_ID = '2a293b0f-5ae7-461c-b30a-928060cf2246'
         DOCKER_REPO = 'rabii1990/backend'
        
         DOCKERFILE_PATH = '/home/rabii/docker/backend/Dockerfile'
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Pull JAR & Build Docker Image') {
             steps {
-                sh "curl -o java8.jar http://192.168.12.148:8081/repository/maven-releases/com/example/java8/2.0/java8-2.0.jar"  // Télécharger le JAR
+                sh "curl -o java8.jar http://192.168.12.150:8081/repository/maven-releases/com/example/java8/2.0/java8-2.0.jar"  // Télécharger le JAR
                 
                 sh " docker build -t java8:newversion -f /home/rabii/docker/backend/Dockerfile /home/rabii/docker/backend/"
             }
