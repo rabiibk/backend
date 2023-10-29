@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
         - name: springboot-k8s-mysql
-          image: wissemayadi/back-r:6
+          image: rabii1990/backend:newversion
           ports:
           - containerPort: 8080                
           env:   # Setting Enviornmental Variables
