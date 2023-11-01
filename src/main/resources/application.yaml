@@ -2,7 +2,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql:30163/test?useSSL=false
+    url: jdbc:mysql://mysql:3306/test?useSSL=false
     username: testuser
     password: testuser@123
     hikari:
