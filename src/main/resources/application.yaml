@@ -3,7 +3,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://mysql:30163/${DB_NAME}?useSSL=false
-    username: ${DB_USERNAME}
+    username: testuser
     password: ${DB_PASSWORD}
     hikari:
       initialization-fail-timeout: 0
