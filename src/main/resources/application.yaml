@@ -2,9 +2,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql:30163/${DB_NAME}?useSSL=false
+    url: jdbc:mysql://mysql:30163/test?useSSL=false
     username: testuser
-    password: ${DB_PASSWORD}
+    password: testuser@123
     hikari:
       initialization-fail-timeout: 0
   jpa:
