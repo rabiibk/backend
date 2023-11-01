@@ -8,7 +8,7 @@ pipeline {
        
         DOCKERFILE_PATH = '/home/rabii/docker/backend/Dockerfile'
         DOCKER_IMAGE_NAME = 'rabii1990/backend'
-        DOCKER_IMAGE_TAG = 'new'
+        DOCKER_IMAGE_TAG = 'new2'
     }
 
     stages {
@@ -40,16 +40,16 @@ pipeline {
 
         stage('Pull JAR & Build Docker Image') {
             steps {
-                sh "curl -o java8.jar http://192.168.12.150:8081/repository/maven-releases/com/example/java8/2.0/java8-2.0.jar"  // Télécharger le JAR
+                sh "curl -o java.jar http://192.168.12.150:8081/repository/maven-releases/com/example/java8/2.0/java-2.0.jar"  // Télécharger le JAR
                 
-                sh " docker build -t java8:new -f /home/rabii/docker/backend/Dockerfile /home/rabii/docker/backend/"
+                sh " docker build -t java:new2 -f /home/rabii/docker/backend/Dockerfile /home/rabii/docker/backend/"
             }
         }
 
         stage('Push Docker Image to Docker Hub') {
             steps {
                 
-                sh " docker tag java8:new ${DOCKER_REPO}:$DOCKER_IMAGE_TAG"
+                sh " docker tag java:new2 ${DOCKER_REPO}:$DOCKER_IMAGE_TAG"
                 sh "docker login -u rabii1990 -p rabiiradar2012"
                 sh "docker push ${DOCKER_REPO}:$DOCKER_IMAGE_TAG"
                 
