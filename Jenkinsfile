@@ -49,7 +49,7 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 
-                sh " docker tag java8:newversion ${DOCKER_REPO}:$DOCKER_IMAGE_TAG"
+                sh " docker tag java8:new ${DOCKER_REPO}:$DOCKER_IMAGE_TAG"
                 sh "docker login -u rabii1990 -p rabiiradar2012"
                 sh "docker push ${DOCKER_REPO}:$DOCKER_IMAGE_TAG"
                 
