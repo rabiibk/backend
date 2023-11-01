@@ -8,7 +8,7 @@ pipeline {
        
         DOCKERFILE_PATH = '/home/rabii/docker/backend/Dockerfile'
         DOCKER_IMAGE_NAME = 'rabii1990/backend'
-        DOCKER_IMAGE_TAG = 'newversion'
+        DOCKER_IMAGE_TAG = 'new'
     }
 
     stages {
@@ -42,7 +42,7 @@ pipeline {
             steps {
                 sh "curl -o java8.jar http://192.168.12.150:8081/repository/maven-releases/com/example/java8/2.0/java8-2.0.jar"  // Télécharger le JAR
                 
-                sh " docker build -t java8:newversion -f /home/rabii/docker/backend/Dockerfile /home/rabii/docker/backend/"
+                sh " docker build -t java8:new -f /home/rabii/docker/backend/Dockerfile /home/rabii/docker/backend/"
             }
         }
 
